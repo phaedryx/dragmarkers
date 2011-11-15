@@ -1,21 +1,7 @@
-<h1>Listing markers</h1>
+<div id="app"></div>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @markers.each do |marker| %>
-  <tr>
-    <td><%= link_to 'Show', marker %></td>
-    <td><%= link_to 'Edit', edit_marker_path(marker) %></td>
-    <td><%= link_to 'Destroy', marker, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Marker', new_marker_path %>
+<script type="text/javascript" charset="utf-8">
+  jQuery(function(){
+    new App({el: $('#app')});
+  });
+</script>
