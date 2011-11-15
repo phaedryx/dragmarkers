@@ -2,7 +2,7 @@ class App.Marker extends Spine.Model
   @configure 'Marker', 'latitude', 'longitude', 'icon'
   @extend Spine.Model.Ajax
 
-  constructor: ({latitude: @latitude, longitude: @longitude, icon: @icon}) ->
+  constructor: ->
     super
     @gmarker = new google.maps.Marker(
       position: new google.maps.LatLng(@latitude, @longitude)
@@ -21,7 +21,7 @@ class App.Marker extends Spine.Model
 
   rightClick: (event) ->
     @gmarker.setMap(null)
-    @gmarker.destroy()
+    @destroy()
 
   setMap: (map) ->
     @gmarker.setMap(map)
