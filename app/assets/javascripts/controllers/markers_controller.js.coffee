@@ -10,6 +10,7 @@ class App.MarkersController extends Spine.Controller
     super
     @html JST["views/markers/index"]
     @createMap()
+    @createMapOverlay()
 
   createMap: ->
     options = {
@@ -18,3 +19,8 @@ class App.MarkersController extends Spine.Controller
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     @map = new google.maps.Map(@mapEl[0], options)
+
+  createMapOverlay: ->
+    @overlay = new google.maps.OverlayView()
+    @overlay.draw = ->
+    @overlay.setMap(@map)
