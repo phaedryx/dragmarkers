@@ -30,5 +30,19 @@ class App.MarkersController extends Spine.Controller
     @markerIcons.draggable({
       helper: 'clone'
       containment: 'parent'
-      stop: console.log "stopped"
+      stop: (event, ui) => @placeMarker(event, ui)
     })
+
+  placeMarker: (event, ui) ->
+    offset = @mapEl.position()
+    x = event.pageX - offset.left
+    y = event.pageY - offset.top
+    point = new google.maps.Point(x,y)
+    latlng = @overlay.getProjection().fromContainerPixelToLatLng(point)
+    icon = ui.helper[0].src
+    marker = Marker.create({
+      latitude: latlng.lat()
+      longitude: latlng.lng()
+      icon: icon
+    })
+    marker.setMap(@map)
