@@ -1,0 +1,11 @@
+<div id="map"></div>
+<img id="0" class="marker" src="/assets/0.png" />
+<img id="1" class="marker" src="/assets/1.png" />
+<img id="2" class="marker" src="/assets/2.png" />
+<img id="3" class="marker" src="/assets/3.png" />
+<img id="4" class="marker" src="/assets/4.png" />
+<img id="5" class="marker" src="/assets/5.png" />
+<img id="6" class="marker" src="/assets/6.png" />
+<img id="7" class="marker" src="/assets/7.png" />
+<img id="8" class="marker" src="/assets/8.png" />
+<img id="9" class="marker" src="/assets/9.png" />
