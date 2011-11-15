@@ -12,6 +12,7 @@ class App.MarkersController extends Spine.Controller
     @createMap()
     @createMapOverlay()
     @makeIconsDraggable()
+    @placeExistingMarkers()
 
   createMap: ->
     options = {
@@ -46,3 +47,7 @@ class App.MarkersController extends Spine.Controller
       icon: icon
     })
     marker.setMap(@map)
+
+  placeExistingMarkers: ->
+    Marker.fetch()
+    console.log Marker.all()
