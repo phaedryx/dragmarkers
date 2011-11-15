@@ -11,6 +11,7 @@ class App.MarkersController extends Spine.Controller
     @html JST["views/markers/index"]
     @createMap()
     @createMapOverlay()
+    @makeIconsDraggable()
 
   createMap: ->
     options = {
@@ -24,3 +25,10 @@ class App.MarkersController extends Spine.Controller
     @overlay = new google.maps.OverlayView()
     @overlay.draw = ->
     @overlay.setMap(@map)
+
+  makeIconsDraggable: ->
+    @markerIcons.draggable({
+      helper: 'clone'
+      containment: 'parent'
+      stop: console.log "stopped"
+    })
