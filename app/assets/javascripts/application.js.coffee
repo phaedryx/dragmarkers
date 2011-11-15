@@ -10,3 +10,10 @@
 #= require_tree ./controllers
 #= require_tree ./views
 #= require_tree .
+
+class App extends Spine.Controller
+  constructor: ->
+    super
+
+
+window.App = App
