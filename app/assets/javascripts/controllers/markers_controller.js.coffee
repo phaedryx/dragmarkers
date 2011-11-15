@@ -49,5 +49,7 @@ class App.MarkersController extends Spine.Controller
     marker.setMap(@map)
 
   placeExistingMarkers: ->
-    Marker.fetch()
-    console.log Marker.all()
+    if Marker.fetch()
+      @markers = Marker.all()
+      marker.setMap(@map) for marker in @markers
+      console.log @markers
