@@ -9,8 +9,8 @@ class App.Marker extends Spine.Model
       icon: @icon
       draggable: true
     )
-    google.maps.event.addListener(@_marker, 'dragend', (event) => @dragEnd(event))
-    google.maps.event.addListener(@_marker, 'rightclick', (event) => @rightClick(event))
+    google.maps.event.addListener(@gmarker, 'dragend', (event) => @dragEnd(event))
+    google.maps.event.addListener(@gmarker, 'rightclick', (event) => @rightClick(event))
     @
 
   dragEnd: (event) ->
