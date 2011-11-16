@@ -31,10 +31,10 @@ class App.MarkersController extends Spine.Controller
     @markerIcons.draggable({
       helper: 'clone'
       containment: 'parent'
-      stop: (event, ui) => @placeMarker(event, ui)
+      stop: (event, ui) => @placeNewMarker(event, ui)
     })
 
-  placeMarker: (event, ui) ->
+  placeNewMarker: (event, ui) ->
     offset = @mapEl.position()
     x = event.pageX - offset.left
     y = event.pageY - offset.top
@@ -49,7 +49,6 @@ class App.MarkersController extends Spine.Controller
     marker.setMap(@map)
 
   placeExistingMarkers: ->
-    if Marker.fetch()
-      @markers = Marker.all()
-      marker.setMap(@map) for marker in @markers
-      console.log @markers
+    Marker.bind 'refresh', (markers) => 
+      marker.setMap(@map) for marker in markers
+    Marker.fetch()
