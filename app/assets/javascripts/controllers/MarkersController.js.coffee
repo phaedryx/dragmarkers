@@ -17,10 +17,10 @@ class App.MarkersController extends Spine.Controller
   createMap: ->
     options = {
       zoom: 6
-      center: new google.maps.LatLng(39.828175, -98.5795)
+      center: new google.maps.LatLng(39.83, -98.58)
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
-    @map = new google.maps.Map(@mapEl[0], options)
+    @map = new google.maps.Map(@mapEl.get(0), options)
 
   createMapOverlay: ->
     @overlay = new google.maps.OverlayView()
@@ -40,7 +40,7 @@ class App.MarkersController extends Spine.Controller
     y = event.pageY - offset.top
     point = new google.maps.Point(x,y)
     latlng = @overlay.getProjection().fromContainerPixelToLatLng(point)
-    icon = ui.helper[0].src
+    icon = ui.helper.get(0).src
     marker = Marker.create({
       latitude: latlng.lat()
       longitude: latlng.lng()
