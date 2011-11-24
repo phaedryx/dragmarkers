@@ -11,7 +11,6 @@ class App.Marker extends Spine.Model
     )
     google.maps.event.addListener(@gmarker, 'dragend', (event) => @dragEnd(event))
     google.maps.event.addListener(@gmarker, 'rightclick', (event) => @rightClick(event))
-    @
 
   dragEnd: (event) ->
     @updateAttributes({
@@ -23,7 +22,5 @@ class App.Marker extends Spine.Model
     @gmarker.setMap(null)
     @destroy()
 
-  setMap: (map) ->
-    @gmarker.setMap(map)
-    @
+  setMap: (map) -> @gmarker.setMap(map)
   

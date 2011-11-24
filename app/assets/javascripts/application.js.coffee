@@ -5,16 +5,8 @@
 #= require spine/route
 
 #= require_tree ./lib
-#= require_self
+#= require ./App
 #= require_tree ./models
 #= require_tree ./controllers
 #= require_tree ./views
 #= require_tree .
-
-class App extends Spine.Controller
-  constructor: ->
-    super
-    @append(new App.MarkersController)
-
-
-window.App = App
